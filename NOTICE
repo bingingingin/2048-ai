@@ -1,0 +1,15 @@
+2048 AI — 65536 challenge
+Copyright 2026 bingingingin and contributors
+
+Original contributions to this project are licensed under the Apache License,
+Version 2.0. See LICENSE for the full terms.
+
+The Expectimax strategy and row evaluation heuristic in engine/solver.cpp
+are adapted from nneonneo/2048-ai:
+Copyright (c) 2014-2019 Robert Xiao <nneonneo@gmail.com> and contributors.
+Those portions retain their MIT license; its full notice is reproduced in
+THIRD_PARTY_NOTICES.md.
+
+The browser distribution includes Emscripten and C/C++ runtime components.
+Their notices are distributed in the site's licenses/ directory. Apache-2.0
+does not replace those components' licenses.

@@ -5,6 +5,12 @@ const arrows = ['↑', '↓', '←', '→'];
 const names = ['上', '下', '左', '右'];
 const milestones = [2048, 4096, 8192, 16384, 32768, 65536];
 let current = null, pending = false, toastTimer, previous = [], commandEpoch = 0;
+const browserMode = document.querySelector('meta[name="2048-runtime"]').content === 'browser';
+const transport = browserMode ? import('./browser/controller.mjs').then(m => m.createTransport()) : null;
+if (browserMode) {
+  $('runtime-note').textContent = '在线版 · 运算与存档保留在此浏览器；关闭页面停止，重开后暂停续存。后台标签页可能减速，请在一个标签页中运行。';
+  transport.catch(error => toast(`引擎加载失败：${error.message}。请刷新重试。`));
+}
 for (let i = 0; i < 16; i++) {
   const tile = document.createElement('div');
   tile.className = 'tile'; tile.setAttribute('role', 'gridcell');
@@ -67,8 +73,11 @@ function render(s) {
     return el;
   }));
   if (s.error) { $('game-status').textContent = s.error; }
+  $('storage-warning').hidden = !s.storage_warning;
+  $('storage-warning').textContent = s.storage_warning || '';
 }
 async function request(path, data) {
+  if (transport) return (await transport).request(path, data);
   const res = await fetch(`/api/${path}`, data === undefined ? {} : {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
   const body = await res.json();
   if (!res.ok) throw new Error(body.error || `请求失败 ${res.status}`);
@@ -89,7 +98,7 @@ async function poll() {
       const state = await request('state');
       if (epoch === commandEpoch && !pending) render(state);
     }
-    $('connection').className = 'connection online'; $('connection').innerHTML = '<i></i>本地引擎在线';
+    $('connection').className = 'connection online'; $('connection').innerHTML = browserMode ? '<i></i>浏览器引擎在线' : '<i></i>本地引擎在线';
   } catch (error) {
     $('connection').className = 'connection'; $('connection').innerHTML = '<i></i>引擎未连接';
   } finally { setTimeout(poll, 250); }

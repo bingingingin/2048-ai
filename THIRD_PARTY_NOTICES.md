@@ -1,5 +1,9 @@
 # Third-party notices
 
+Original contributions to this repository are licensed under Apache-2.0;
+see [LICENSE](LICENSE) and [NOTICE](NOTICE). The third-party portions below
+retain their own licenses. The root license does not replace their notices.
+
 ## nneonneo/2048-ai
 
 - Source: https://github.com/nneonneo/2048-ai
@@ -32,3 +36,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Browser distribution: Emscripten and C/C++ runtimes
+
+The same C++ source is compiled with **Emscripten 4.0.15** to a JavaScript /
+WebAssembly module. This compiled distribution incorporates SDK runtime code:
+
+| Component | Source | License / notice in the deployed site |
+| --- | --- | --- |
+| Emscripten JavaScript runtime | https://github.com/emscripten-core/emscripten/tree/4.0.15 | MIT or University of Illinois/NCSA, `licenses/EMSCRIPTEN-LICENSE.txt` |
+| libc++ | Emscripten `system/lib/libcxx` | LLVM Apache-2.0 with LLVM exceptions and retained notices, `licenses/LIBCXX-LICENSE.txt` |
+| libc++abi | Emscripten `system/lib/libcxxabi` | LLVM Apache-2.0 with LLVM exceptions and retained notices, `licenses/LIBCXXABI-LICENSE.txt` |
+| musl libc | Emscripten `system/lib/libc/musl` | MIT and file-specific notices, `licenses/MUSL-COPYRIGHT.txt` |
+| compiler-rt | Emscripten `system/lib/compiler-rt` | LLVM Apache-2.0 with LLVM exceptions and retained notices, `licenses/COMPILER-RT-LICENSE.txt` |
+
+`build_site.py` copies these license files directly from the pinned SDK into
+the published artifact. Refer to those complete notices for component-specific
+copyright holders and exceptions; this table is a summary, not a substitute.
+The SDK itself is a build dependency and is not committed to this repository.

@@ -1,0 +1,17 @@
+{
+  "reported_at": "2026-09-11",
+  "source": "project author feedback",
+  "scope": "aggregate observations across the author's prior no-undo tests",
+  "runtime": "native-local",
+  "undo": false,
+  "sample_count": null,
+  "seeds": null,
+  "success_rates": null,
+  "observations": [
+    {"profile": "fast", "budget_ms": 10, "max_depth": 5, "cutoff": 0.0001,
+     "reported_max_tiles": [8192, 16384], "statement": "快速模式的最大方块通常为 8192 或 16384。"},
+    {"profile": "deep", "budget_ms": 500, "max_depth": 10, "cutoff": 0.00003,
+     "reported_typical_tile": 32768, "statement": "深思模式一般可以稳定运行到 32768。"}
+  ],
+  "limitations": "作者使用观察，未提供完整逐局记录；不表示每局保证，不与已有三局批次合并统计，不作为 WebAssembly 版到达率或 65536 成功证据。"
+}

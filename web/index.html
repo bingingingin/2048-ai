@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f3f2ea">
+  <meta name="2048-runtime" content="local">
   <title>65536 · 2048 自动挑战</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="shell">
-    <header><a class="brand" href="/" aria-label="65536 首页"><span class="brand-mark">16</span> POWER OF TWO<span class="brand-caption">2048 自动挑战</span></a><span id="connection" class="connection"><i></i>连接中</span></header>
+    <header><a class="brand" href="./" aria-label="65536 首页"><span class="brand-mark">16</span> POWER OF TWO<span class="brand-caption">2048 自动挑战</span></a><span id="connection" class="connection"><i></i>连接中</span></header>
     <main>
       <section class="intro"><div><p class="eyebrow">THE LONG GAME / 2¹⁶</p><h1>下一站，<em>65536.</em></h1><p class="subtitle">让每一步，都为下一次合并留出空间。</p></div><div class="target-stamp"><span>目标方块</span><strong>2<sup>16</sup></strong><span>65,536</span></div></section>
       <div class="workspace">
@@ -31,10 +32,12 @@
         </aside>
       </div>
       <section class="history-panel" id="history-panel" hidden><div class="section-title"><h2>最近对局</h2><span class="subtle">每一局，都有记录</span></div><div id="history"></div></section>
+      <p class="note" id="runtime-note">本地版 · 关闭页面后，Python 服务仍可继续运行。</p>
+      <p class="note" id="storage-warning" role="status" hidden></p>
     </main>
-    <footer><span>2048 → 65536<span class="footer-divider">/</span>保持空位，等待合并。</span><a href="https://github.com/nneonneo/2048-ai" target="_blank" rel="noreferrer">算法参考 nneonneo/2048-ai ↗</a></footer>
+    <footer><span>2048 → 65536<span class="footer-divider">/</span><a href="https://github.com/bingingingin/2048-ai" target="_blank" rel="noreferrer">GitHub · Apache-2.0 ↗</a></span><a href="https://github.com/bingingingin/2048-ai/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noreferrer">算法参考与第三方许可 ↗</a></footer>
   </div>
   <div id="toast" role="alert" hidden></div>
-  <script src="/app.js" defer></script>
+  <script src="./app.js" defer></script>
 </body>
 </html>
