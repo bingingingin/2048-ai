@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f2ea">
+  <title>65536 · 2048 自动挑战</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="shell">
+    <header><a class="brand" href="/" aria-label="65536 首页"><span class="brand-mark">16</span> POWER OF TWO<span class="brand-caption">2048 自动挑战</span></a><span id="connection" class="connection"><i></i>连接中</span></header>
+    <main>
+      <section class="intro"><div><p class="eyebrow">THE LONG GAME / 2¹⁶</p><h1>下一站，<em>65536.</em></h1><p class="subtitle">让每一步，都为下一次合并留出空间。</p></div><div class="target-stamp"><span>目标方块</span><strong>2<sup>16</sup></strong><span>65,536</span></div></section>
+      <div class="workspace">
+        <section class="game-panel" aria-label="游戏棋盘">
+          <div class="board-top"><div><span class="stat-label">本局得分</span><strong id="score">0</strong></div><div class="board-top-right"><span class="stat-label">最大方块</span><strong id="max-tile">2</strong></div></div>
+          <div id="board" class="board" role="grid" aria-label="2048 棋盘"></div>
+          <div class="board-bottom"><span id="game-status" role="status">准备就绪</span><span><b id="moves">0</b> 步</span></div>
+          <div class="main-controls"><button id="toggle" class="primary">开始自动运行 <span>↗</span></button><button id="step" class="secondary">AI 单步</button></div>
+          <div class="sub-controls"><button id="new-game" class="text-button">↻ 新开一局</button><span>方向键接管 · 空格暂停</span><button id="export" class="text-button">导出对局 ↗</button></div>
+        </section>
+        <aside>
+          <section class="control-panel"><div class="section-title"><h2>自动驾驶</h2><span class="small-tag">EXPECTIMAX</span></div>
+            <label class="field-label" for="profile">思考强度</label><select id="profile"><option value="fast">快速 · 10 ms / 步</option><option value="balanced" selected>均衡 · 100 ms / 步</option><option value="deep">深思 · 500 ms / 步</option></select>
+            <p class="field-help" id="profile-help">兼顾搜索深度与对局速度，适合持续挑战。</p>
+            <label class="switch-row" for="retry"><span><strong>失败后自动重试</strong><small>达到 65536 时自动停止</small></span><input id="retry" type="checkbox" checked role="switch"></label>
+            <div class="mini-stats"><div><span class="stat-label">当前局数</span><strong id="attempt">01</strong></div><div><span class="stat-label">历史最大</span><strong id="best">—</strong></div><div><span class="stat-label">本局时长</span><strong id="elapsed">00:00</strong></div></div>
+          </section>
+          <section class="analysis-panel"><div class="section-title"><h2>这一步的思考</h2><span id="depth-label" class="subtle">等待分析</span></div><div class="direction-scores" id="direction-scores"></div><div class="search-meta"><span>搜索节点 <b id="nodes">—</b></span><span>用时 <b id="search-time">—</b></span></div><p class="analysis-note">比较上一步各方向的期望评分，亮色为已执行的选择。</p></section>
+          <section class="milestone-panel"><div class="section-title"><h2>通往 65536</h2><span id="milestone-count" class="subtle">0 / 6</span></div><div id="milestones" class="milestones"></div><p class="note">标准 4 × 4 棋盘，随机生成 2 或 4。深度搜索提高决策质量，达成目标仍取决于对局表现与随机落子。</p></section>
+        </aside>
+      </div>
+      <section class="history-panel" id="history-panel" hidden><div class="section-title"><h2>最近对局</h2><span class="subtle">每一局，都有记录</span></div><div id="history"></div></section>
+    </main>
+    <footer><span>2048 → 65536<span class="footer-divider">/</span>保持空位，等待合并。</span><a href="https://github.com/nneonneo/2048-ai" target="_blank" rel="noreferrer">算法参考 nneonneo/2048-ai ↗</a></footer>
+  </div>
+  <div id="toast" role="alert" hidden></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

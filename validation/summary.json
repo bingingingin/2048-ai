@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-11",
+  "engine_sha256": "b4bf753ae1253b4d2c436d1cec4651f714a50d7bd674637bffffefdc0aee9dd0",
+  "replay_verified": true,
+  "test_count": 12,
+  "batch": {
+    "config": {
+      "games": 3,
+      "seed": 20260911,
+      "target": 65536,
+      "budget_ms": 10,
+      "depth": 8,
+      "cutoff": 0.0001,
+      "max_moves": 200000,
+      "until_target": false,
+      "output": "runs/final-validation"
+    },
+    "results": [
+      {
+        "seed": 20260911,
+        "moves": 14904,
+        "score": 387304,
+        "max_tile": 16384,
+        "won": false,
+        "over": true,
+        "seconds": 152.86,
+        "status": "lost"
+      },
+      {
+        "seed": 20260912,
+        "moves": 13961,
+        "score": 367020,
+        "max_tile": 16384,
+        "won": false,
+        "over": true,
+        "seconds": 144.28,
+        "status": "lost"
+      },
+      {
+        "seed": 20260913,
+        "moves": 5687,
+        "score": 134568,
+        "max_tile": 8192,
+        "won": false,
+        "over": true,
+        "seconds": 58.42,
+        "status": "lost"
+      }
+    ],
+    "wins": 0,
+    "attempts": 3
+  }
+}
