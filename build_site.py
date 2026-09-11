@@ -1,5 +1,4 @@
 """Build the standalone GitHub Pages site using Emscripten 4.0.15."""
-import argparse
 import hashlib
 import json
 import os

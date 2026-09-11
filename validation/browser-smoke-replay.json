@@ -1,0 +1,330 @@
+{
+  "version": 2,
+  "runtime": "browser-wasm",
+  "rng": "mulberry32-rejection-v1",
+  "seed": 462628692,
+  "target": 65536,
+  "initial": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+  ],
+  "board": [
+    0,
+    2,
+    8,
+    64,
+    0,
+    0,
+    4,
+    8,
+    2,
+    0,
+    0,
+    8,
+    0,
+    0,
+    0,
+    0
+  ],
+  "score": 348,
+  "moves": 40,
+  "max_tile": 64,
+  "won": false,
+  "over": false,
+  "history": [
+    {
+      "direction": "down",
+      "spawn": {
+        "index": 1,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 0,
+        "value": 2
+      }
+    },
+    {
+      "direction": "down",
+      "spawn": {
+        "index": 2,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 4,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 9,
+        "value": 2
+      }
+    },
+    {
+      "direction": "left",
+      "spawn": {
+        "index": 9,
+        "value": 2
+      }
+    },
+    {
+      "direction": "left",
+      "spawn": {
+        "index": 9,
+        "value": 4
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 15,
+        "value": 2
+      }
+    },
+    {
+      "direction": "down",
+      "spawn": {
+        "index": 4,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 12,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 9,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 5,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 12,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 0,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 5,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 4,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 8,
+        "value": 4
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 12,
+        "value": 4
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 8,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 13,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 10,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 9,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 13,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 9,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 5,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 4,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 15,
+        "value": 2
+      }
+    },
+    {
+      "direction": "down",
+      "spawn": {
+        "index": 8,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 2,
+        "value": 2
+      }
+    },
+    {
+      "direction": "down",
+      "spawn": {
+        "index": 4,
+        "value": 2
+      }
+    },
+    {
+      "direction": "down",
+      "spawn": {
+        "index": 4,
+        "value": 2
+      }
+    },
+    {
+      "direction": "down",
+      "spawn": {
+        "index": 8,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 13,
+        "value": 4
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 5,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 14,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 12,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 13,
+        "value": 4
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 13,
+        "value": 2
+      }
+    },
+    {
+      "direction": "right",
+      "spawn": {
+        "index": 6,
+        "value": 2
+      }
+    },
+    {
+      "direction": "up",
+      "spawn": {
+        "index": 8,
+        "value": 2
+      }
+    }
+  ]
+}

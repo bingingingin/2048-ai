@@ -70,3 +70,30 @@ python autoplay.py --games 3 --seed 20260911 --budget-ms 10 --depth 8 --output r
 - 桌面与 390 px 宽布局经过浏览器检查，手机宽度下未出现横向溢出；浏览器未记录页面脚本错误。
 - `node --check web/app.js` 和 Python 源文件编译检查通过。
 - 已核对上游 MIT 许可并保留版权声明。参考项目临时克隆已删除，构建产物与运行记录分别保留在 `build/` 和 `runs/`。
+
+## GitHub Pages / WebAssembly 发布验证
+
+首次发布代码：`dd8df54189bcfe6e9c81046990696db0178d662c`。构建与部署记录：[Actions #34574237573](https://github.com/bingingingin/2048-ai/actions/runs/34574237573)，结果 **success**。
+
+站点：[https://bingingingin.github.io/2048-ai/](https://bingingingin.github.io/2048-ai/)。使用同一份 C++ 源码，Emscripten **4.0.15** 编译；构建指纹可在站点 [build-info.json](https://bingingingin.github.io/2048-ai/build-info.json) 查阅，后续发布会更新其中的提交号。
+
+本次自动化验证共 **24 项通过**：
+
+| 测试组 | 数量 | 关键覆盖 |
+| --- | ---: | --- |
+| Python / 原生引擎 | 12 | 规则、目标、高位棋盘、超时、暂停竞态、存档和自动重试；Windows 本机及 Actions Linux 均通过 |
+| 浏览器规则与控制器 | 8 | 独立 Python 跨语言重放、恢复后 RNG 延续、损坏记录、暂停/重开竞态、单步、重试、目标停止、存储与引擎错误 |
+| 编译后的 WebAssembly | 4 | 83,521 行布局、6,000 整盘方向对照、构造目标与死局、1 ms 预算下 200 步运行与重放 |
+
+独立 Chromium 浏览器访问已部署的 HTTPS 站点，实际检查：
+
+- Web Worker / WebAssembly 加载成功，显示“浏览器引擎在线”。
+- 深思模式 AI 单步正常，切到快速模式后自动运行，暂停后棋盘不再移动。
+- 使用导出按钮下载 `version: 2` 对局；本次种子 `462628692`，40 步、348 分、最大方块 64。公开样例为 [validation/browser-smoke-replay.json](validation/browser-smoke-replay.json)，运行 `python verify_replay.py validation/browser-smoke-replay.json` 可独立逐步核验。
+- 刷新后棋盘、步数、分数一致，以暂停状态恢复。
+- 1280 px 桌面和 390 px 手机宽度的完整页面经过截图检查，手机页面没有横向溢出；测试期间没有页面脚本异常。
+- 站点 HTTP 200，构建提交与发布提交一致；仓库为 public，About 首页链接指向在线站点，GitHub 识别许可证为 Apache-2.0。
+
+40 步检查是网页功能验证，200 步检查是 WASM 运行回归；两者均不作为完整对局成绩，不加入前面的到达方块统计。本次没有重新采集快速或深思模式的完整胜率批次。
+
+根目录 `LICENSE` 为 Apache-2.0 全文，`NOTICE` 与 `THIRD_PARTY_NOTICES.md` 保留上游 MIT 归属；部署产物随附 SDK 原始运行库许可文本。

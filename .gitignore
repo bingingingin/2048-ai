@@ -6,3 +6,5 @@ runs/
 .venv/
 dist/
 .tools/
+.playwright-cli/
+output/
